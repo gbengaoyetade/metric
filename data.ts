@@ -1,13 +1,9 @@
-
 type metric = {
-  time: number
-  value: number
-}
+  time: number;
+  value: number;
+  key: string;
+};
 
-type metricData = {
-  [key: string] : metric[]
-}
-
-const data: metricData = {};
+const data: metric[] = [];
 
 export { data };
