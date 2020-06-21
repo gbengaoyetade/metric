@@ -1,0 +1,1 @@
+export const oneHour = 3600000;

@@ -1,5 +1,9 @@
 import express from 'express';
 import routes from './routes';
+import { cleanUp } from './helpers/cleanUp';
+import { oneHour } from './helpers/constants';
+
+setInterval(cleanUp, oneHour);
 
 const port = process.env.PORT || 3000;
 const app = express();

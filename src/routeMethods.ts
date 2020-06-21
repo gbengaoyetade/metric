@@ -1,10 +1,11 @@
 import { Request, Response } from 'express';
 import { data } from '../data';
+import { oneHour } from './helpers/constants';
 
 export const getMetrics = (req: Request, res: Response) => {
   const { key } = req.params;
   const time = Date.now();
-  const oneHour = 3600000;
+
 
   const metricValues = data.filter((input) => input.key === key && Date.now() - input.time <= oneHour);
 
@@ -27,6 +28,5 @@ export const createMetric = (req: Request, res: Response) => {
 
   data.push({ value, time, key });
 
-  console.log(data);
   res.json({});
 };
