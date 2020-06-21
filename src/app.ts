@@ -1,7 +1,18 @@
 import express from 'express';
+import routes from './routes';
 
 const port = process.env.PORT || 3000;
 const app = express();
+
+app.use(express.urlencoded());
+app.use(express.json());
+
+type userValue = {
+  [x: string]: number,
+  time: number
+}
+
+app.use('/metric', routes)
 
 app.get('/', (req, res) => {
   res.send({ message: 'Welcome to metrics app' })
