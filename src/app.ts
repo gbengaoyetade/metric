@@ -10,10 +10,13 @@ app.use('/metric', routes)
 
 
 app.get('/', (req, res) => {
-  res.send({ message: 'Welcome to metrics app' })
+  res.send({ message: 'Welcome to metrics app' });
 });
 
+app.all('*', (req, res) => {
+  res.status(404).json({ error: 'Not found' });
+});
 
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
-})
+});

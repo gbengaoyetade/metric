@@ -31,6 +31,5 @@ export const createMetric = (req: Request, res: Response) => {
      data[key] = [{ value, time }]
   }
 
-  console.log({...data})
   res.json({})
 };
