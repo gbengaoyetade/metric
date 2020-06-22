@@ -28,5 +28,5 @@ export const createMetric = (req: Request, res: Response) => {
 
   data.push({ value, time, key });
 
-  res.json({});
+  res.status(201).json({});
 };
