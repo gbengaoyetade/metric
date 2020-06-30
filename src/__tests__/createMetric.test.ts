@@ -1,11 +1,8 @@
-import request from 'supertest';
-import app from '../app';
-
-const requestObject = request(app);
+import request from '../helpers/testUtils';
 
 describe('createMetric', () => {
   it('should return an error when url contains special character', (done) => {
-    requestObject
+    request
       .post('/metric/ad!')
       .send({ value: 23 })
       .end((err, res) => {
@@ -16,7 +13,7 @@ describe('createMetric', () => {
   });
 
   it('should return an error when value key is not provided', (done) => {
-    requestObject
+    request
       .post('/metric/xyz')
       .send({ hello: 34 })
       .end((err, res) => {
@@ -27,7 +24,7 @@ describe('createMetric', () => {
   });
 
   it('should return an error when value key is not provided', (done) => {
-    requestObject
+    request
       .post('/metric/xyz')
       .send({ value: '34' })
       .end((err, res) => {
@@ -38,7 +35,7 @@ describe('createMetric', () => {
   });
 
   it('should create the metric when all checks pass', (done) => {
-    requestObject
+    request
       .post('/metric/xyz')
       .send({ value: 34 })
       .end((err, res) => {

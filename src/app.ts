@@ -25,7 +25,9 @@ if(nodeEnv !== 'test') {
     !nodeEnv && console.log(`Listening on port ${port}`);
   });
   
-  setInterval(cleanUp, oneHour);
+  setInterval(() => {
+    cleanUp(oneHour)
+  }, oneHour);
 }
 
 export default app;
